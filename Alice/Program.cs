@@ -13,17 +13,14 @@ namespace Alice
                 " thought Alice ‘without pictures or conversation?’";
             Console.WriteLine(aliceString);
 
-            //initialize and set a placeholder value to termFound
-            //we'll use this in the next few lines... 
-            //... to tell the program whether or not the search term was found.
-            bool termFound = false;
-
             //acquire search term from user
             Console.WriteLine("Type a term to search for in the passage:");
             string searchTerm = Console.ReadLine();
 
-            //use the FindTerm method to tell the program whether or not the search term was found.
-            termFound = FindTerm(searchTerm, termFound, aliceString);
+            //use the FindTerm method to tell the program whether or not the search term was found...
+            //... by passing searchTerm and aliceString to the term and passage parameters...
+            //... of the FindTerm method.
+            bool termFound = FindTerm(searchTerm, aliceString);
 
             //execute until the user presses ENTER without entering a term to search...
             //... or closes the program.
@@ -43,7 +40,7 @@ namespace Alice
 
                     //search for the term and update the value of termFound.
                     //this will adjust the outcome of the if/else-if "loop."
-                    termFound = FindTerm(searchTerm, termFound, aliceString);
+                    termFound = FindTerm(searchTerm, aliceString);
                 }
                 //execute if the user input was not found within aliceString
                 else if (termFound == false)
@@ -57,20 +54,26 @@ namespace Alice
 
                     //search for the term and update the value of termFound.
                     //this will adjust the outcome of the if/else-if "loop."
-                    termFound = FindTerm(searchTerm, termFound, aliceString);
+                    termFound = FindTerm(searchTerm,aliceString);
                 }
             }
 
         }
 
-        private static bool FindTerm(string searchTerm, bool termFound, string aliceString)
+        //(This method is actually pretty weighty and unnecessary.)
+        //(The entire reason I made this program work around this method)
+        //(was to understand more about how methods work. :P)
+        private static bool FindTerm(string term, string passage)
         {
             //determine whether the search query is contained within aliceString.
             //achieve case-insensitivity by turning user input to ALLCAPS and aliceString to ALLCAPS...
             //... before doing the comparison.
-            termFound = aliceString.ToUpper().Contains(searchTerm.ToUpper());
+            //pass the value of the comparison into new boolean variable termFoundTemp.
+            bool termFoundTemp = passage.ToUpper().Contains(term.ToUpper());
 
-            return termFound;
+            //pass the value of termFoundTemp back to Main.
+            //we do this so that we can assign the value of termFoundTemp to termFound.
+            return termFoundTemp;
         }
 
     }
