@@ -13,10 +13,6 @@ namespace Alice
                 " thought Alice ‘without pictures or conversation?’";
             Console.WriteLine(aliceString);
 
-            //initialize and set a placeholder value to searchTerm
-            //this will store the user's search term.
-            string searchTerm = "";
-
             //initialize and set a placeholder value to termFound
             //we'll use this in the next few lines... 
             //... to tell the program whether or not the search term was found.
@@ -24,7 +20,7 @@ namespace Alice
 
             //acquire search term from user
             Console.WriteLine("Type a term to search for in the passage:");
-            searchTerm = Console.ReadLine();
+            string searchTerm = Console.ReadLine();
 
             //use the FindTerm method to tell the program whether or not the search term was found.
             termFound = FindTerm(searchTerm, termFound, aliceString);
