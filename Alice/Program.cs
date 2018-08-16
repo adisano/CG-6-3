@@ -19,11 +19,11 @@ namespace Alice
 
             if (termFound == true)
             {
-                Console.WriteLine("Term " + searchTerm + " was found.");
+                Console.WriteLine("Term \"" + searchTerm + "\" was found.");
             }
-            if (termFound == false)
+            else if (termFound == false)
             {
-                Console.WriteLine("Term " + searchTerm + " was not found.");
+                Console.WriteLine("Term \"" + searchTerm + "\" was not found.");
             }
 
             Console.ReadLine();
