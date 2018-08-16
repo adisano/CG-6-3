@@ -18,11 +18,11 @@ namespace Alice
             string searchTerm = "";
 
             //initialize and set a placeholder value to termFound
-            //we'll use this in the next line... 
+            //we'll use this in the next few lines... 
             //... to tell the program whether or not the search term was found.
             bool termFound = false;
 
-            //allow the user to search for a term
+            //acquire search term from user
             Console.WriteLine("Type a term to search for in the passage:");
             searchTerm = Console.ReadLine();
 
